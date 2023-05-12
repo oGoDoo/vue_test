@@ -6,8 +6,6 @@
 </template>
 
 <script>
-//引入一个混合
-// import {mixin,hunhe} from '../mixin'
     export default{
         name:'Student',
         data(){
@@ -17,9 +15,5 @@
                 x:666
             }
         },
-        // mixins:[mixin,hunhe],
-    //     mounted(){
-    //     console.log('你好啊!!!!!!!!!!!')
-    // }
     }
 </script>

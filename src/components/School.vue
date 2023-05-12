@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import {mixin,hunhe} from '../mixin'
     export default {
     name:'School',
     data() {
@@ -15,7 +14,6 @@ import {mixin,hunhe} from '../mixin'
             name: '万合技校',
             address: '安徽四川',
         }
-    },
-    mixins:[mixin,hunhe]
+    }
 }
 </script>
