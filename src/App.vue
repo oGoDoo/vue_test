@@ -14,4 +14,4 @@
         name:'App',
         components:{Student,School}
     }
-</script>
+</script>  
