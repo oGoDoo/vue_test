@@ -41,3 +41,49 @@
         第二部使用混入，例如：
             (1).全局换入：Vue.mixin(xxx)
             (2).局部混入：mixins:['xxx']
+
+## 插件
+    功能：用于增强Vue
+    本质：包含install方法的一个对象，install的第一个参数是Vue，第二个以后的参数是插件使用者传递的数据。
+    定义插件：
+    对象.install = function(Vue,options){
+        //1.全局过滤器
+        Vue.filter('mySlice', function (value) {
+            return value.slice(0, 4);
+        })
+        //2.定义全局指令
+        Vue.directive('fbind', {
+            //指令与元素成功绑定时
+            bind(element, binding) {
+                element.value = binding.value;
+            },
+            //指定所在元素被插入页面时
+            inserted(element, binding) {
+                element.focus();
+            },
+            //指令所在的模板被重新解析时候
+            update(element, binding) {
+                element.value = binding.value;
+            }
+        })
+        //3.定义混入
+        Vue.mixin({
+                methods: {
+                    showName() {
+                        alert(this.name)
+                    }
+                },
+                mounted(){
+                    console.log('你好啊!')
+                }
+        })
+
+        //4.给Vue原型上添加一个方法(Vm和Vc就都能用了)
+        Vue.prototype.hello = ()=>{alert('你好啊')}
+    }
+    使用插件：Vue.use()
+
+    ## scoped样式
+        作用：让样式局部生效，防止冲突。
+        写法：<style scoped>
+        <style scoped  lang="less"> --指定语法 

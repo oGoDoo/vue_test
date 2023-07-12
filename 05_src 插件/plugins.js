@@ -1,7 +1,8 @@
 export default {
-    install(Vue) {
+    install(Vue,x,y,z) {
         //全局过滤器
         Vue.filter('mySlice', function (value) {
+            console.log(x,y,z)
             return value.slice(0, 4);
         })
         //定义全局指令
