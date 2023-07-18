@@ -6,14 +6,14 @@
         <span>
             <span>已完成{{ doneTotal }}</span> / 全部 {{ total }}
         </span>
-        <button class="btn btn-danger">清除已完成任务</button>
+        <button class="btn btn-danger" @click="clearAll">清除已完成任务</button>
     </div>
 </template>
 
 <script>
 export default {
     name: 'MyFooter',
-    props: ['todos', 'checkAllTodo'],
+    props: ['todos', 'checkAllTodo','clearAllTodo'],
     computed:
     {
         total() {
@@ -37,14 +37,12 @@ export default {
     },
     methods: {
         // checkAll(e){
-
+                // this.checkAllTodo(value);
         // }
         clearAll() {
-            //清徐所有已经完成的todo
-            // clearAllTodo(){
-
-            // }
-        }
+            // 清徐所有已经完成的todo
+            this.clearAllTodo();
+        },
     }
 }
 </script>
