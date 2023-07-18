@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h1 class="app">{{ msg }}</h1>
+    <div class="app">
+        <h1>{{ msg }}</h1>
         <School/>
         <Student/>
     </div>
@@ -24,5 +24,6 @@
 <style scoped>
     .app{
         background-color: gray;
+        padding: 5px;
     }
 </style>
