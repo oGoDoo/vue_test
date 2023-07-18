@@ -100,3 +100,24 @@
         (2).子组件 ===> 父组件 通信 （要求父先给子一个函数）
     3.使用v-model时要切记：v-model的值不能是props传过来的值，因为props是不可以修改的！
     4.props传过来的若是对象类型的值，修改对象中的属性时Vue不会报错，但不推荐这样做。
+
+## webStorage
+    1.存储内容大小一般支持5MB左右（不同的浏览器可能还不一样）
+    2.浏览器通过 Window.sessionStorage 和 Window.localStorage 属性来实现本地存储机制。
+    3.相关API：
+        1.xxxxxStorage.setItem('key','value');
+            该方法接受一个键和值作为参数，会把键值对添加到存储中，如果键名存，在则更新其对应的值。
+        2.xxxxxStorage.getItem('person');
+            该方法接收一个键名作为参数，返回键名对应的值。
+        3.xxxxxStorage.removeItem('key');
+            通过key，删除key
+        4.xxxxxStorage.clear();
+            清空所有数据
+    
+    4.备注：
+        1.SessionStorage存储的内容会随着浏览器窗口关闭而消失。
+        2.LocalStorage存储的内容，需要手动清除才会消失
+        3.xxxxxStorage.getItem(xxx) 如果xxx对应的value获取不到，返回null
+        4.JSON.parse(null) 结果还是null
+
+
