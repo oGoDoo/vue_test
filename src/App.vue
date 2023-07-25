@@ -2,7 +2,7 @@
     <div class="app">
         <h1>{{ msg }}</h1>
         <School/>
-        <Student/>
+        <Student :getSchoolName="getSchoolName"/>
     </div>
 </template>
 
@@ -16,6 +16,11 @@
         data(){
             return{
                 msg:'你好啊！'
+            }
+        },
+        methods:{
+            getSchoolName(name){
+                console.log('App收到了学校名：',name)
             }
         }
     }
