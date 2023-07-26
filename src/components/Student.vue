@@ -24,7 +24,7 @@
             sendStudentName(){
                 //触发Student组件实例身上的wxjx事件
                 this.$emit('whjx',this.name,666,888,'哈哈哈哈');
-                this.$emit('demo')
+                // this.$emit('demo')
             },
             unbind(){
                 // this.$off('whjx') //解绑一个自定义事件
@@ -32,7 +32,7 @@
                 this.$off(); // 解绑所有的自定义事件
             },
             death(){
-                this.$destroy() // 销毁了当前的student组件实例
+                this.$destroy() // 销毁了当前的student组件实例,销毁后所有Student实例的自定义事件全都不奏效，原生的也不奏效了（我自己的）
             },
             add(){
                 console.log('add回调被调用了')
