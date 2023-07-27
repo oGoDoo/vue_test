@@ -25,6 +25,7 @@
                 //触发Student组件实例身上的wxjx事件
                 this.$emit('whjx',this.name,666,888,'哈哈哈哈');
                 // this.$emit('demo')
+                // this.$emit('click')
             },
             unbind(){
                 // this.$off('whjx') //解绑一个自定义事件
@@ -39,7 +40,10 @@
                 this.number++;
             }
             
-        }
+        },
+        // mounted(){
+        //     this.$on('haha',())
+        // }
     }
     
 </script>
