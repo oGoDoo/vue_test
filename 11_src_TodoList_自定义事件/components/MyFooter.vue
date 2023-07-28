@@ -13,7 +13,7 @@
 <script>
 export default {
     name: 'MyFooter',
-    props: ['todos', 'checkAllTodo','clearAllTodo'],
+    props: ['todos'],
     computed:
     {
         total() {
@@ -31,7 +31,8 @@ export default {
                 return this.doneTotal === this.tatal && this.tatal > 0;
             },
             set(value){
-               this.checkAllTodo(value);
+            //    this.checkAllTodo(value);
+               this.$emit('checkAllTodo',value);
             }
         }
     },
@@ -41,7 +42,8 @@ export default {
         // }
         clearAll() {
             // 清徐所有已经完成的todo
-            this.clearAllTodo();
+            // this.clearAllTodo();
+            this.$emit('clearAllTodo');
         },
     }
 }
