@@ -121,20 +121,39 @@
         4.JSON.parse(null) 结果还是null
 
 ## 组件的自定义事件
-    1.一种组件间的通信方式，适用于: **<span style="color:red;">子组件 ===> 父组件</span>**
-    2.使用场景：A是父组件，B是子组件，B想给A传数据，那么就要在A种给B绑定自定义事件（<span style="color:red;">事件的回调在A中</span>）
-    3.绑定自定义事件：
-        1.第一种方式，在父组件中：<Demo @whjx="test"/> 或 <Demo v-on:whjx="test"/>
-        2.第二种方式，在父组件中：
-        ```js
-            ......
-            mounted(){
-                this.$refs.xxx.$on('whjx',this.test)
-            }
-        ```
-        3.若想让自定义事件只触发一次，可以使用once修饰符，或$once方法
-    4.出发自定义事件：this.$emit('whjx',数据)
-    5.解绑自定义事件：this.$off('whjx')
-    6.组件上可以绑定原生DOM事件，需要使用 native 修饰符。
-    7.注意：通过this.$refs.xxx.$on('whjx',回调)绑定自定义事件时，回调<span style="color:red;">要么配置在methods中，要么用箭头函数</span>，否则this.指向会出问题！
+1.一种组件间的通信方式，适用于: **<span style="color:red;">子组件 ===> 父组件</span>**
+2.使用场景：A是父组件，B是子组件，B想给A传数据，那么就要在A种给B绑定自定义事件（<span style="color:red;">事件的回调在A中</span>）
+3.绑定自定义事件：
+    1.第一种方式，在父组件中：<Demo @whjx="test"/> 或 <Demo v-on:whjx="test"/>
+    2.第二种方式，在父组件中：
+
+```js
+	......
+    mounted(){
+        this.$refs.xxx.$on('whjx',this.test)
+    }
+```
+​    3.若想让自定义事件只触发一次，可以使用once修饰符，或$once方法
+4.出发自定义事件：this.$emit('whjx',数据)
+5.解绑自定义事件：this.$off('whjx')
+6.组件上可以绑定原生DOM事件，需要使用 native 修饰符。
+7.注意：通过this.$refs.xxx.$on('whjx',回调)绑定自定义事件时，回调<span style="color:red;">要么配置在methods中，要么用箭头函数</span>，否则this.指向会出问题！
+
+## 全局事件总线（GlobalEventBus）
+
+​	1.一种组件间通信方式，适用于<span style="color:red;">任意组件间通信</span>。
+
+​	2.安装全局事件总线
+
+```js
+new Vue({
+	……
+	beforeCreate(){
+		Vue.prototype.$bus = this //安装全局事件总线，$bus就是当前应用的vm
+},
+	……
+})
+```
+
+
 

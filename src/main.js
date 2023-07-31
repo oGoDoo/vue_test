@@ -10,18 +10,12 @@ import App from './App.vue'
 //关闭vue的生产提示
 Vue.config.productionTip = false
 
-const Demo = Vue.extend({});
-const d = new Demo();
-
-Vue.prototype.x = demo
 
 //创建Vue实例对象---vm
 new Vue({
   el:'#app',
   render: h => h(App),
-  // mounted(){
-  //   setTimeout(()=>{
-  //     this.$destroy()
-  //   },3000)
-  // }
+  beforeCreate(){
+    Vue.prototype.$bus = this; // 安装全局事件总线
+  }
 })

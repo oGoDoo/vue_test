@@ -18,11 +18,14 @@ export default {
     },
     mounted(){
         console.log('School',this);
-        // this.x.$on('hello',(data)=>{
-        //     console.log('我是school组件，收到了数据',data)
-        // })
-
+        this.$bus.$on('hello',(data)=>{
+            console.log('我是school组件，收到了数据',data)
+        })
+    },
+    beforeDestroy(){
+        this.$bus.$off('hello');
     }
+
 }
 
 </script>
