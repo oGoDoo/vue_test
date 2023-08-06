@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import pubsub from 'pubsub-js'
 export default {
     name: 'School',
     props:['getSchoolName'],
@@ -18,17 +17,13 @@ export default {
         }
     },
     mounted(){
-        /* console.log('School',this);
+        console.log('School',this);
         this.$bus.$on('hello',(data)=>{
             console.log('我是school组件，收到了数据',data)
-        }) */ 
-        this.pubId = pubsub.subscribe('hello',(magName,data) => { // 要使用到this就用箭头函数，或者就是把回调写到method里面
-            console.log('有人发布了hello消息，hello消息的回调执行了',magName,data)
         })
     },
     beforeDestroy(){
-        // this.$bus.$off('hello');
-        pubsub.unsubscribe(this.pubId);
+        this.$bus.$off('hello');
     }
 
 }
