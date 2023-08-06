@@ -10,11 +10,9 @@ import App from './App.vue'
 //关闭vue的生产提示
 Vue.config.productionTip = false
 
+
 //创建Vue实例对象---vm
 new Vue({
   el:'#app',
-  render: h => h(App),
-  beforeCreate(){
-    Vue.prototype.$bus = this
-  }
-}) 
+  render: h => h(App)
+})
