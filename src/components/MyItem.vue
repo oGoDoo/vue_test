@@ -7,11 +7,12 @@
                 v-show="todo.isEdit" 
                 type="text" 
                 :value="todo.title" 
-                @blur="handleBlur(todo)"
+                @blur="handleBlur(todo,$event)"
+                ref="inputTitle"
             />
         </label>
         <button class="btn btn-danger" @click="handleDelete(todo.id)">删除</button>
-        <button class="btn btn-edit" @click="handleEdit(todo)">编辑</button>
+        <button v-show="!todo.isEdit" class="btn btn-edit" @click="handleEdit(todo)">编辑</button>
     </li>
 </template>
 
@@ -37,17 +38,22 @@ export default {
                 pubsub.publish('deleteTodo',id)
             }
         },
+        //编辑
         handleEdit(todo){
             if(todo.hasOwnProperty('isEdit')){
                 todo.isEdit = true;
             }else{
                 this.$set(todo,'isEdit',true)
             }
+            this.$nextTick(function(){
+                this.$refs.inputTitle.focus();
+            })
         },
         //失去焦点回调（真正执行修改逻辑）
-        handleBlur(todo){
+        handleBlur(todo,e){
             this.todo.isEdit = false;
-            pubsub.publish('updateTodo ',todo.id,e.target.value);
+            if(!e.target.value.trim())return alert('输入不能为空')
+            this.$bus.$emit('updateTodo',todo.id,e.target.value);
         }
     }
 }
