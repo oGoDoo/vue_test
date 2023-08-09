@@ -21,11 +21,8 @@ export default {
     components: { MyHeader, MyList, MyFooter },
     data() {
         return {
-            todos: [
-                { id: '001', title: '抽烟', done: true },
-                { id: '002', title: '喝酒', done: false },
-                { id: '003', title: '开车', done: true }
-            ]
+            //由于todos是MyHeader组件和MyFooter组件都在使用，所以放在App中 （状态提升）
+            todos:JSON.parse(localStorage.getItem('todos')) || []
         }
     },
     methods:{
@@ -56,6 +53,11 @@ export default {
             }))
         }
     },
+    watch:{
+        todos(value){
+            localStorage.setItem('todos',JSON.stringify(value));
+        }
+    },
     mounted(){
         this.$bus.$on('checkTodo',this.checkTodo);
         this.pubId = pubsub.subscribe('deleteTodo',this.deleteTodo)
@@ -63,6 +65,14 @@ export default {
     beforeDestroy(){
         this.$bus.$off('checkTodo');
         pubsub.unsubscribe('deleteTodo',this.pubId)
+    },
+    watch:{
+        todos:{
+            deep:true,
+            handler(value){
+                localStorage.setItem('todos',JSON.stringify(value));
+            }
+        }   
     }
 }
 </script>  
@@ -90,6 +100,13 @@ body {
     color: #fff;
     background-color: #da4f49;
     border: 1px solid #bd362f;
+}
+
+.btn-edit {
+    color: #fff;
+    background-color: skyblue;
+    border: 1px solid rgb(94, 145, 165);
+    margin-right: 5px;
 }
 
 .btn-danger:hover {
