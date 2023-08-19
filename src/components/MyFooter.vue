@@ -26,10 +26,13 @@ export default {
             }, 0) */
             return this.todos.reduce((pre, todo) => pre + (todo.done ? 1 : 0), 0)
         },
+        //控制全选框
         isAll:{
+            //全选框是否勾选
             get(){
-                return this.doneTotal === this.tatal && this.tatal > 0;
+                return this.doneTotal === this.total && this.total > 0;
             },
+            //isAll被修改时set被调用
             set(value){
             //    this.checkAllTodo(value);
                this.$emit('checkAllTodo',value);
