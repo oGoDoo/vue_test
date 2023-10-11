@@ -15,9 +15,10 @@ module.exports = {
   devServer: {
     proxy: {
       '/qsl': {
-        target: 'http://localhost:5000/student',
-        // ws: true,
-        // changeOrigin: true
+        target: 'http://localhost:5000',
+        pathRewrite:{'^/qsl':''}
+        // ws: true, // 用于支持websocket
+        // changeOrigin: true //用于控制请求头中的host值
       }
     }
   }
