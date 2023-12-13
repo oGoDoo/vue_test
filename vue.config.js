@@ -18,8 +18,14 @@ module.exports = {
         target: 'http://localhost:5000',
         pathRewrite:{'^/qsl':''}
         // ws: true, // 用于支持websocket
-        // changeOrigin: true //用于控制请求头中的host值
+        // changeOrigin: true //用于控制请求头中的host值 react 框架里面不写默认的是false
+      },
+      '/demo': {
+        target: 'http://localhost:5001',
+        pathRewrite:{'^/demo':''}
+        // ws: true, // 用于支持websocket
+        // changeOrigin: true //用于控制请求头中的host值 react 框架里面不写默认的是false
       }
-    }
+    }  
   }
 }
