@@ -20,9 +20,8 @@ export default {
     },
     methods: {
         searchUsers() {
-            console.log(this);
             this.$bus.$emit('upDateListData',{isFirst:false,isLoading:true,errMsg:'',users:[]});
-            this.$http.get(`https://api.github.com/search/users?q=${this.keyWord}`).then(
+            axios.get(`https://api.github.com/search/users?q=${this.keyWord}`).then(
                 response => {
                     //请求成功后更新List的数据
                     console.log('请求成功了');
