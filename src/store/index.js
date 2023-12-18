@@ -9,14 +9,17 @@ Vue.use(Vuex)
 
 //准备actions - 用于响应组件中的动作
 const actions = {
-    /*jia(context, value) {
+    /* jia(context, value) {
         console.log('actions中的jia被调用了');
         context.commit('JIA', value);
     },
     jian(context, value) {
         console.log('actions中的jian被调用了');
         context.commit('JIAN', value);
-    },*/
+    }, */
+
+    /* ************************************ */
+
     jiaOdd(context, value) {
         console.log('actions中的jiaOdd被调用了');
         if (context.state.sum % 2) {
