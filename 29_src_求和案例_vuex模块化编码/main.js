@@ -6,20 +6,27 @@
 import Vue from 'vue'
 //引入App组件,它是所有组件的父组件
 import App from './App.vue'
-//引入vuerouter
-import VueRouter from 'vue-router'
-//引入
-import router from './router';
 // import './url';
 //引入插件
+import vueResource from 'vue-resource'
+//引入vuex
+import Vuex from 'vuex'
+//引入store
+// import store from './store/index'
+import store from './store'
 //关闭vue的生产提示
 Vue.config.productionTip = false
 //使用插件
-Vue.use(VueRouter);
+Vue.use(vueResource)
+
 
 //创建Vue实例对象---vm
-const vm = new Vue({
+new Vue({
   el:'#app',
+  store,
   render: h => h(App),
-  router:router,
+  beforeCreate(){
+    Vue.prototype.$bus = this
+  }
 }) ;
+// console.log(vm)
