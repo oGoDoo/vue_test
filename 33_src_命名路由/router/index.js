@@ -29,7 +29,7 @@ export default new VueRouter({
                     children: [
                         {
                             name:'xiangqing',
-                            path: 'detail/:id/:title', // 占位符
+                            path: 'detail',
                             component: Detail
                         },
                     ]
