@@ -30,12 +30,11 @@ export default {
     },
     computed: {
         //借助mapState生成计算属性，从state中读取（数组写法）
-        ...mapState('countAbount',['sum','school','subject']),
-        ...mapState('personAbount',['personList']),
+        ...mapState(['sum', 'school', 'subject','personList']),
 
 
         //借助mapState生成计算属性，从state中读取（数组写法）
-        ...mapGetters('countAbount',['bigSum']),
+        ...mapGetters(['bigSum']),
 
     },
     methods: {
@@ -45,15 +44,15 @@ export default {
             this.qslDecrement(this.n);
         },
         //借助mapMutations生成对应的方法，方法中会调用commit去联系mutations（对象写法）
-        ...mapMutations('countAbount',{  'qslDecrement': 'JIAN' }),
+        ...mapMutations({  'qslDecrement': 'JIAN' }),
 
         //借助mapMutations生成对应的方法，方法中会调用commit去联系mutations（数组写法）
-        ...mapMutations('countAbount',[ 'JIA' ]),
+        ...mapMutations([ 'JIA' ]),
 
 
 
         //借助mapActions生成的方法，方法中会调用dispatch去联系actions(数组写法)
-        ...mapActions('countAbount',['jiaOdd','jiaWait'])
+        ...mapActions(['jiaOdd','jiaWait'])
     },
     mounted() {
         /* const x = mapState({'he':'sum','xuexiao':'school','xueke':'subject'})
