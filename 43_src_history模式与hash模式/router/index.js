@@ -8,12 +8,15 @@ import Message from '../pages/Message';
 import Detail from '../pages/Detail';
 //创建并暴露一个路由器
 const router = new VueRouter({
+    // mode:'hash',
+    mode:'history',
     routes: [
         {
             'name': 'guanyu',
             path: '/about',
             component: About,  
-            meta:{title:'关于'}
+            meta:{title:'关于',isAuth:true},
+
         },
         {
             name: 'zhuye',
@@ -30,7 +33,7 @@ const router = new VueRouter({
                         isAuth:true,
                         title:'新闻'
                     },
-                    beforeEnter:((to,from,next) => {
+                    /* beforeEnter:((to,from,next) => {
                         console.log('前置路由守卫',to, from,next);
                         if (to.meta.isAuth) { //判断是否需要权限
                             if (localStorage.getItem('school') === '万合技校') {
@@ -41,7 +44,7 @@ const router = new VueRouter({
                         }else{
                             next();
                         }
-                    })
+                    }) */
                 },
                 {
                     name: "xiaoxi",

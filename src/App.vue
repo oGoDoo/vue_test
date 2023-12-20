@@ -1,37 +1,33 @@
 <template>
     <div>
-        <div class="row">
-            <Banner/>
-        </div>
-        <div class="row">
-            <div class="col-xs-2 col-xs-offset-2">
-                <div class="list-group">
-                    <!-- 原始html中我们使用a标签实现页面的跳转 -->
-                    <!-- <a class="list-group-item active" href="./about.html">About</a>
-                    <a class="list-group-item" href="./home.html">Home</a> -->
+        <button>原生的按钮</button>
+        <input type="text">
+        <qsl-row>
+            <qsl-button>默认按钮</qsl-button>
+            <qsl-button type="primary">主要按钮</qsl-button>
+            <qsl-button type="success">成功按钮</qsl-button>
+            <qsl-button type="info">信息按钮</qsl-button>
+            <qsl-button type="warning">警告按钮</qsl-button>
+            <qsl-button type="danger">危险按钮</qsl-button>
 
-                    <!-- Vue中借助router-link标签实现路由的切换 -->
-                    <router-link class="list-group-item" active-class="active" :to="{path:'/about'}">About</router-link>
-                    <router-link class="list-group-item" active-class="active" to="/home">Home</router-link>
-                </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="panel">
-                    <div class="panel-body">
-                        <!-- 指定组件的呈现位置 -->
-                        <router-view></router-view>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <qsl-date-picker type="date" placeholder="选择日期">
+            </qsl-date-picker>
+        </qsl-row>
+
+        <qsl-row>
+            <qsl-button icon="qsl-icon-search" circle></qsl-button>
+            <qsl-button type="info" icon="qsl-icon-remove"></qsl-button>
+            <qsl-button type="success" icon="qsl-icon-check" circle></qsl-button>
+            <qsl-button type="info" icon="qsl-icon-message" circle></qsl-button>
+            <qsl-button type="warning" icon="qsl-icon-star-off" circle></qsl-button>
+            <qsl-button type="danger" icon="qsl-icon-dqslete" circle></qsl-button>
+        </qsl-row>
     </div>
 </template>
 
 <script>
-import Banner from './components/Banner.vue'
 
 export default {
     name: 'App',
-    components: { Banner }
 }
 </script>  
