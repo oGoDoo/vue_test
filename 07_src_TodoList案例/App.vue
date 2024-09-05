@@ -37,6 +37,11 @@ export default {
             this.todos.forEach((todo)=>{
                 if(todo.id === id) todo.done = !todo.done
             })
+          let chckeout = this.todos.reduce((pre,todo) => pre + (todo.done ? 1:0),0)
+          if (chckeout === this.todos.length){
+            // this.isTrue;
+          }
+
         },
         //删除一个todo
         deleteTodo(id){

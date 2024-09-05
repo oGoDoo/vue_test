@@ -29,6 +29,9 @@ new Vue({
   //下面这行代码一会解释，完成了这个功能：将App组件放入容器中
   render: h => h(App),
 
+  // render: function(createElement) { 这里等同于上面那行代码
+  //   return createElement(App);
+  // }
   // template:'<h1>你好啊</h1>'
   // render:q => q('h1','你好啊')
 })

@@ -81,7 +81,7 @@ router.beforeEach((to,from,next)=>{
 //全局后置路由守卫————初始化的时候被调用、每次路由切换之后被调用
 router.afterEach((to,from)=>{
 	console.log('后置路由守卫',to,from)
-	document.title = to.meta.title || '硅谷系统'
+	document.title = to.meta.title || '乔双龙系统'
 })
 
 export default router

@@ -67,7 +67,6 @@ const router =  new VueRouter({
 									b:'hello'
 								}
 							}
-
 						}
 					]
 				}

@@ -8,8 +8,8 @@ import Message from '../pages/Message';
 import Detail from '../pages/Detail';
 //创建并暴露一个路由器
 const router = new VueRouter({
-    // mode:'hash',
-    mode:'history',
+    mode:'hash',
+    // mode:'history',
     routes: [
         {
             'name': 'guanyu',
